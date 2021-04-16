@@ -80,6 +80,7 @@ export default {
           charset: 'UTF-8',
         };
         const myResponse = await axios.post('https://jsonplaceholder.typicode.com/users', tempObj, { headers });
+        // eslint-disable-next-line no-console
         console.log(myResponse);
         this.$store.dispatch('submittedUser', myResponse.data);
         this.$router.push({ name: 'User-details' });
