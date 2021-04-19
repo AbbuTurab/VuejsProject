@@ -1,19 +1,40 @@
 <template>
 <div class="dashboard">
   <h2>Welcome to Dashboard</h2><hr/>
-  <div class="barchart"><Barchart/></div>
-  <div class="linechart"><Linechart/></div>
+  <div class="barchart">
+    <div>
+      <apexchart width="500" type="line" :options="options" :series="series"></apexchart>
+    </div>
+  </div>
+  <div class="linechart">
+    <div>
+    <apexchart width="500" type="bar" :options="options" :series="series"></apexchart>
+  </div>
+  </div>
 </div>
 </template>
 
 <script>
-import Barchart from '../components/Barchar.vue';
-import Linechart from '../components/Linegraphs.vue';
 
 export default {
   components: {
-    Barchart,
-    Linechart,
+  },
+  name: 'Barchart',
+  data() {
+    return {
+      options: {
+        chart: {
+          id: 'vuechart-example',
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+        },
+      },
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 45, 50, 49, 60, 70, 91],
+      }],
+    };
   },
 };
 </script>
